@@ -5,3 +5,4 @@ parameters:
 	paths:
 		- answers
 		- lib
+		- index.php

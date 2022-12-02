@@ -8,5 +8,6 @@ final class Game extends GameAbstract
 
 	protected function start(): void
 	{
+		echo 'tada';
 	}
 }

@@ -4,6 +4,7 @@
 	<config name="testVersion" value="8.1-"/>
 	<file>./answers</file>
 	<file>./lib</file>
+	<file>./index.php</file>
 
 	<arg name="colors"/>
 	<arg value="sp"/>

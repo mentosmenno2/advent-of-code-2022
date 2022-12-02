@@ -11,3 +11,11 @@ I use the PHP language for solving these puzzles.
 
 Every folder within the `answers` folder, represents the day number of the puzzle.
 Inside every day folder, there will be a separation between part 1 and part 2 of the puzzle.
+
+## Calculate an answer
+
+To calculate an answer, use the following in your command line interface:
+
+```sh
+php index.php [dayNumber] [partNumber]
+```
