@@ -1,0 +1,51 @@
+name: Build & test
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+  pull_request_target:
+    branches:
+      - 'master'
+      - 'main'
+
+jobs:
+  php:
+    name: PHP test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.1']
+    steps:
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, dom, simplexml
+      - uses: actions/checkout@v2
+        with:
+          path: advent-of-code-2022/
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Debugging
+        run: |
+          php --version
+          php -m
+          composer --version
+          ls -lsah
+      - name: Composer build
+        run: |
+          cd advent-of-code-2022/
+          composer install --prefer-dist
+      - name: test:composer
+        run: |
+          cd advent-of-code-2022/
+          composer run test:composer
+      - name: test:phpcs
+        run: |
+          cd advent-of-code-2022/
+          composer run test:phpcs
+      - name: test:phpstan
+        run: |
+          cd advent-of-code-2022/
+          composer run test:phpstan
