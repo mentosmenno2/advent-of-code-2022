@@ -1,5 +1,9 @@
 <?php
 
+namespace Mentosmenno2\AdventOfCode2022\Answers\Day02\Part1;
+
+use Mentosmenno2\AdventOfCode2022\Lib\GameAbstract;
+
 final class Game extends GameAbstract
 {
 
@@ -60,7 +64,7 @@ final class Game extends GameAbstract
 		}
 
 		$this->output->echo_line(
-			sprintf('The total score is %d.', $total_score);
+			sprintf('The total score is %d.', $total_score)
 		);
 	}
 }

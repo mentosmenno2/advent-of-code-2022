@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Outputter.php';
+namespace Mentosmenno2\AdventOfCode2022\Lib;
 
 abstract class GameAbstract
 {

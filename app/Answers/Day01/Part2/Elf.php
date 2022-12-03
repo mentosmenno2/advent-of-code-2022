@@ -1,5 +1,7 @@
 <?php
 
+namespace Mentosmenno2\AdventOfCode2022\Answers\Day01\Part2;
+
 final class Elf
 {
 

@@ -1,12 +1,16 @@
 <?php
 
+namespace Mentosmenno2\AdventOfCode2022\Answers\Day01\Part1;
+
+use Mentosmenno2\AdventOfCode2022\Lib\GameAbstract;
+
 final class Game extends GameAbstract
 {
 
 	/**
 	 * @var Elf[]
 	 */
-	protected $elves;
+	protected $elves = array();
 
 	protected function prepare_data(string $file_data): void
 	{
@@ -22,19 +26,16 @@ final class Game extends GameAbstract
 
 	protected function start(): void
 	{
-		$all_elf_calories = array_map(function (Elf $elf): int {
-			return $elf->get_total_items_calories();
-		}, $this->elves);
+		$largest_elf = null;
+		foreach ($this->elves as $elf) {
+			if (! $largest_elf || $elf->get_total_items_calories() > $largest_elf->get_total_items_calories()) {
+				$largest_elf = $elf;
+			}
+		}
 
-		rsort($all_elf_calories);
-		$largest_three = array_slice($all_elf_calories, 0, 3);
-
+		/** @var Elf $largest_elf */
 		$this->output->echo_line(
-			sprintf(
-				'The elves carrying the most calories are carrying %s calories. Together they carry a total of %d calories.',
-				implode(', ', $largest_three),
-				array_sum($largest_three)
-			)
+			sprintf('The elf carrying the most calories is carrying %d calories.', $largest_elf->get_total_items_calories())
 		);
 	}
 }

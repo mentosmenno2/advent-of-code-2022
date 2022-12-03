@@ -1,5 +1,7 @@
 <?php
 
+namespace Mentosmenno2\AdventOfCode2022\Lib;
+
 class Outputter
 {
 	public function echo( string $text = '' ): void {
@@ -11,7 +13,7 @@ class Outputter
 	}
 
 	protected function get_line_ending(): string {
-		if ( php_sapi_name() === 'cli' ) {
+		if ( ADVENT_OF_CODE_2022_CLI ) {
 			return PHP_EOL;
 		} else {
 			return '<br />';
