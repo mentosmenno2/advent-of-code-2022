@@ -6,7 +6,7 @@ final class Game extends GameAbstract
 	/**
 	 * @var Elf[]
 	 */
-	protected $elves;
+	protected $elves = array();
 
 	protected function prepare_data(string $file_data): void
 	{
