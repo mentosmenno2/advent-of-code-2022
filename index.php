@@ -20,8 +20,5 @@ if (! file_exists($day_index_file)) {
 	echo 'Attempted to open ' . $day_index_file . PHP_EOL;
 }
 
-// Require all required libs
-require_once __DIR__ . '/lib/GameAbstract.php';
-
 // Require the day index file
 require_once $day_index_file;
