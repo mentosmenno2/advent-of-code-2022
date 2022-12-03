@@ -3,6 +3,9 @@ parameters:
 	reportUnmatchedIgnoredErrors: false
 	editorUrl: 'vscode://file/%%file%%:%%line%%'
 	paths:
-		- answers
-		- lib
+		- app
 		- index.php
+		- autoloader.php
+		- run-answer.php
+		- run-cli.php
+		- run-web.php

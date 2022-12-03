@@ -2,9 +2,12 @@
 <ruleset name="ImageCropPositioner">
 	<description>Mentosmenno2 Image Crop Positioner ruleset</description>
 	<config name="testVersion" value="8.1-"/>
-	<file>./answers</file>
-	<file>./lib</file>
+	<file>./app</file>
 	<file>./index.php</file>
+	<file>./autoloader.php</file>
+	<file>./run-answer.php</file>
+	<file>./run-cli.php</file>
+	<file>./run-web.php</file>
 
 	<arg name="colors"/>
 	<arg value="sp"/>
