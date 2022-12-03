@@ -59,6 +59,8 @@ final class Game extends GameAbstract
 			$total_score += $your_round_score;
 		}
 
-		echo sprintf('The total score is %d.', $total_score);
+		$this->output->echo_line(
+			sprintf('The total score is %d.', $total_score);
+		);
 	}
 }

@@ -30,6 +30,8 @@ final class Game extends GameAbstract
 		}
 
 		/** @var Elf $largest_elf */
-		echo sprintf('The elf carrying the most calories is carrying %d calories.', $largest_elf->get_total_items_calories());
+		$this->output->echo_line(
+			sprintf('The elf carrying the most calories is carrying %d calories.', $largest_elf->get_total_items_calories())
+		);
 	}
 }

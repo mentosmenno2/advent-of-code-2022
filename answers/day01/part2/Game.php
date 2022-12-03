@@ -29,10 +29,12 @@ final class Game extends GameAbstract
 		rsort($all_elf_calories);
 		$largest_three = array_slice($all_elf_calories, 0, 3);
 
-		echo sprintf(
-			'The elves carrying the most calories are carrying %s calories. Together they carry a total of %d calories.',
-			implode(', ', $largest_three),
-			array_sum($largest_three)
+		$this->output->echo_line(
+			sprintf(
+				'The elves carrying the most calories are carrying %s calories. Together they carry a total of %d calories.',
+				implode(', ', $largest_three),
+				array_sum($largest_three)
+			)
 		);
 	}
 }

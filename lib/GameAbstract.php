@@ -1,9 +1,16 @@
 <?php
 
+require_once __DIR__ . '/Outputter.php';
+
 abstract class GameAbstract
 {
+
+	protected Outputter $output;
+
 	public function __construct(string $data_file)
 	{
+		$this->output = new Outputter();
+
 		$file_data = file_get_contents($data_file);
 		if (! $file_data) {
 			return;
