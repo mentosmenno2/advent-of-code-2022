@@ -22,14 +22,17 @@ final class Game extends GameAbstract
 
 	protected function start(): void
 	{
-		$largest_elf = null;
-		foreach ($this->elves as $elf) {
-			if (! $largest_elf || $elf->get_total_items_calories() > $largest_elf->get_total_items_calories()) {
-				$largest_elf = $elf;
-			}
-		}
+		$all_elf_calories = array_map(function (Elf $elf): int {
+			return $elf->get_total_items_calories();
+		}, $this->elves);
 
-		/** @var Elf $largest_elf */
-		echo sprintf('The elf carrying the most calories is carrying %d calories.', $largest_elf->get_total_items_calories());
+		rsort($all_elf_calories);
+		$largest_three = array_slice($all_elf_calories, 0, 3);
+
+		echo sprintf(
+			'The elves carrying the most calories are carrying %s calories. Together they carry a total of %d calories.',
+			implode(', ', $largest_three),
+			array_sum($largest_three)
+		);
 	}
 }

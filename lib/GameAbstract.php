@@ -4,7 +4,7 @@ abstract class GameAbstract
 {
 	public function __construct(string $data_file)
 	{
-		$file_data = file($data_file);
+		$file_data = file_get_contents($data_file);
 		if (! $file_data) {
 			return;
 		}
@@ -17,10 +17,10 @@ abstract class GameAbstract
 	 * Prepares and processes data from the input file.
 	 * Should set class varables with the prepared data.
 	 *
-	 * @param string[] $file_data
+	 * @param string $file_data
 	 * @return void
 	 */
-	abstract protected function prepare_data(array $file_data): void;
+	abstract protected function prepare_data(string $file_data): void;
 
 	/**
 	 * Starts the game

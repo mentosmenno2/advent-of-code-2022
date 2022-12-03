@@ -34,7 +34,7 @@
             "composer validate"
         ],
         "test:phpcs": [
-            "phpcs"
+            "phpcs --runtime-set testVersion 8.1-"
         ],
         "test:phpstan": [
             "phpstan"
