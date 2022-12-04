@@ -11,10 +11,16 @@ I use the PHP language for solving these puzzles.
 
 ## Calculating an answer
 
+### Via CLI
+
 To calculate an answer, run the following command in your command line interface, from the repo root:
 
 ```sh
 php index.php [dayNumber] [partNumber]
 ```
 
-Or, you can just visit the `index.php` file in your browser (running on a PHP webserver.)
+### Via webbrowser and PHP webserver
+
+If you are a person who likes a little more color, or finds terminal windows scary, this is for you.
+
+Just start a PHP webserver, and in your browser navigate to the `index.php` file.
