@@ -37,7 +37,7 @@ final class Game extends GameAbstract
 		}
 
 		$this->output->echo_line(
-			sprintf('The amount of pairs fully containing eachothers rooms is %d.', $count)
+			sprintf('The amount of pairs partially containing eachothers rooms is %d.', $count)
 		);
 	}
 }
