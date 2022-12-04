@@ -57,6 +57,26 @@ $useTestData = (bool) filter_input(INPUT_GET, 'useTestData', FILTER_VALIDATE_BOO
 				   font-size: 14pt;
 				border: 2px solid #00cc00;
 			}
+
+			.form-fields {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: flex-start;
+				align-content: flex-start;
+			}
+
+			.form-field {
+				margin-right: 10px;
+				margin-bottom: 10px;
+				display: flex;
+				flex-direction: column;
+				flex-wrap: nowrap;
+				justify-content: flex-start;
+				align-items: flex-start;
+				align-content: flex-start;
+			}
 		</style>
 	</head>
 	<body>
@@ -66,55 +86,60 @@ $useTestData = (bool) filter_input(INPUT_GET, 'useTestData', FILTER_VALIDATE_BOO
 
 			<h2>Answer select</h2>
 			<form action="" method="get">
-				<div>
-					<label for="dayNumber">Day number</label>
-					<select name="dayNumber" id="dayNumber">
-						<?php for ($dayNumberLoop=1; $dayNumberLoop < 25 + 1; $dayNumberLoop++) { ?>
+				<div class="form-fields">
+					<fieldset class="form-field">
+						<legend><label for="dayNumber">Day number</label></legend>
+						<select name="dayNumber" id="dayNumber">
+							<?php for ($dayNumberLoop=1; $dayNumberLoop < 25 + 1; $dayNumberLoop++) { ?>
+								<option
+									value="<?php echo $dayNumberLoop; ?>"
+									<?php echo ( $dayNumberLoop === $dayNumber ) ? 'selected="selected"' : ''; ?>
+								>
+									Day <?php echo $dayNumberLoop; ?>
+								</option>
+							<?php } ?>
+						</select>
+					</fieldset>
+					<fieldset class="form-field">
+						<legend><label for="partNumber">Part number</label></legend>
+						<select name="partNumber" id="partNumber">
+							<?php for ($partNumberLoop=1; $partNumberLoop < 2 + 1; $partNumberLoop++) { ?>
+								<option
+									value="<?php echo $partNumberLoop; ?>"
+									<?php echo ( $partNumberLoop === $partNumber ) ? 'selected="selected"' : ''; ?>
+								>
+									Part <?php echo $partNumberLoop; ?>
+								</option>
+							<?php } ?>
+						</select>
+					</fieldset>
+					<fieldset class="form-field">
+						<legend><label for="useTestData">Use test data</label></legend>
+						<select name="useTestData" id="useTestData">
 							<option
-								value="<?php echo $dayNumberLoop; ?>"
-								<?php echo ( $dayNumberLoop === $dayNumber ) ? 'selected="selected"' : ''; ?>
+								value="0"
+								<?php echo ! $useTestData ? 'selected="selected"' : ''; ?>
 							>
-								Day <?php echo $dayNumberLoop; ?>
+								No
 							</option>
-						<?php } ?>
-					</select>
-				</div>
-				<div>
-					<label for="partNumber">Part number</label>
-					<select name="partNumber" id="partNumber">
-						<?php for ($partNumberLoop=1; $partNumberLoop < 2 + 1; $partNumberLoop++) { ?>
 							<option
-								value="<?php echo $partNumberLoop; ?>"
-								<?php echo ( $partNumberLoop === $partNumber ) ? 'selected="selected"' : ''; ?>
+								value="1"
+								<?php echo $useTestData ? 'selected="selected"' : ''; ?>
 							>
-								Part <?php echo $partNumberLoop; ?>
+								Yes
 							</option>
-						<?php } ?>
-					</select>
-				</div>
-				<div>
-					<label for="useTestData">Use test data</label>
-					<select name="useTestData" id="useTestData">
-						<option
-							value="0"
-							<?php echo ! $useTestData ? 'selected="selected"' : ''; ?>
-						>
-							No
-						</option>
-						<option
-							value="1"
-							<?php echo $useTestData ? 'selected="selected"' : ''; ?>
-						>
-							Yes
-						</option>
-					</select>
+						</select>
+					</fieldset>
 				</div>
 				<div>
 					<input type="submit" value="Get answer">
 				</div>
 			</form>
 
-			<h2>Answer</h2>
+			<h2>
+				Answer
+				<?php echo ($dayNumber && $partNumber) ? sprintf('for day %d part %d', $dayNumber, $partNumber) : '' ?>
+			</h2>
 			<p>
 				<?php
 				if ($dayNumber && $partNumber) {
