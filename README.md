@@ -16,7 +16,12 @@ I use the PHP language for solving these puzzles.
 To calculate an answer, run the following command in your command line interface, from the repo root:
 
 ```sh
-php index.php [dayNumber] [partNumber]
+php index.php [dayNumber] [partNumber] [testData]
+```
+
+For example day 4, part 2, with testdata:
+```sh
+php index.php 4 2 1
 ```
 
 ### Via webbrowser and PHP webserver
