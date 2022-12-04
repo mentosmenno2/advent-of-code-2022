@@ -138,11 +138,11 @@ $useTestData = (bool) filter_input(INPUT_GET, 'useTestData', FILTER_VALIDATE_BOO
 
 			<h2>
 				Answer
-				<?php echo ($dayNumber && $partNumber) ? sprintf('for day %d part %d', $dayNumber, $partNumber) : '' ?>
+				<?php echo ($dayNumber && $partNumber) ? sprintf('for day %d part %d', $dayNumber, $partNumber) : ''; ?>
 			</h2>
 			<p>
 				<?php
-				if ($dayNumber && $partNumber) {
+				if ($dayNumber && $partNumber) { // @phpstan-ignore-line
 					require_once ADVENT_OF_CODE_2022_ROOT_DIR . '/run-answer.php';
 				} else {
 					?> Choose a day number and part number to view the answer.<?php
