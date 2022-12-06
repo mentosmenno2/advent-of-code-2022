@@ -29,3 +29,5 @@ php index.php 4 2 1
 If you are a person who likes a little more color, or finds terminal windows scary, this is for you.
 
 Just start a PHP webserver, and in your browser navigate to the `index.php` file. You should be greeted with an interface. If not, you did something wrong, sorry!
+
+![Screenshot of the interface in the web browser](./screenshot.png)
