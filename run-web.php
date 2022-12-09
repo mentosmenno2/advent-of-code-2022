@@ -1,9 +1,5 @@
 <?php
 
-$argv = array(
-	1, 1, true
-);
-
 $dayNumber = (int) filter_input(INPUT_GET, 'dayNumber', FILTER_VALIDATE_INT);
 $partNumber = (int) filter_input(INPUT_GET, 'partNumber', FILTER_VALIDATE_INT);
 $useTestData = (bool) filter_input(INPUT_GET, 'useTestData', FILTER_VALIDATE_BOOLEAN);
